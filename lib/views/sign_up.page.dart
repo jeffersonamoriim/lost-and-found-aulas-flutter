@@ -54,64 +54,93 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget _showNameTextField() {
-    return TextFormField(
-      controller: _nameController,
-      keyboardType: TextInputType.text,
-      decoration: InputDecoration(
-        hintText: 'Nome',
-        prefixIcon: Icon(Icons.person),
-      ),
-      textInputAction: TextInputAction.next,
-      autofocus: true,
-      focusNode: _nameFocusNode,
-      onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_emailFocusNode),
-    );
+    return Container(
+        height: 60,
+        padding: EdgeInsets.only(top: 18.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.zero),
+            color: Colors.white,
+            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)]),
+        child: TextFormField(
+          controller: _nameController,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: 'Nome',
+            prefixIcon: Icon(Icons.person),
+          ),
+          textInputAction: TextInputAction.next,
+          autofocus: true,
+          focusNode: _nameFocusNode,
+          onEditingComplete: () =>
+              FocusScope.of(context).requestFocus(_emailFocusNode),
+        ));
   }
 
   Widget _showEmailTextField() {
-    return TextFormField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        hintText: 'Email',
-        prefixIcon: Icon(Icons.email),
-      ),
-      textInputAction: TextInputAction.next,
-      focusNode: _emailFocusNode,
-      onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_passwordFocusNode),
-    );
+    return Container(
+        height: 60,
+        padding: EdgeInsets.only(top: 18.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.zero),
+            color: Colors.white,
+            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)]),
+        child: TextFormField(
+          controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            hintText: 'Email',
+            prefixIcon: Icon(Icons.email),
+          ),
+          textInputAction: TextInputAction.next,
+          focusNode: _emailFocusNode,
+          onEditingComplete: () =>
+              FocusScope.of(context).requestFocus(_passwordFocusNode),
+        ));
   }
 
   Widget _showPasswordTextField() {
-    return TextFormField(
-      controller: _passwordController,
-      keyboardType: TextInputType.text,
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: 'Senha',
-        prefixIcon: Icon(Icons.vpn_key),
-      ),
-      textInputAction: TextInputAction.next,
-      focusNode: _passwordFocusNode,
-      onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_confirmPasswordFocusNode),
-    );
+    return Container(
+        height: 60,
+        padding: EdgeInsets.only(top: 18.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.zero),
+            color: Colors.white,
+            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)]),
+        child: TextFormField(
+          controller: _passwordController,
+          keyboardType: TextInputType.text,
+          obscureText: true,
+          decoration: InputDecoration(
+            hintText: 'Senha',
+            prefixIcon: Icon(Icons.vpn_key),
+          ),
+          textInputAction: TextInputAction.next,
+          focusNode: _passwordFocusNode,
+          onEditingComplete: () =>
+              FocusScope.of(context).requestFocus(_confirmPasswordFocusNode),
+        ));
   }
 
   Widget _showConfirmPasswordTextField() {
-    return TextFormField(
-      controller: _confirmPasswordController,
-      keyboardType: TextInputType.text,
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: 'Confirmar senha',
-        prefixIcon: Icon(Icons.vpn_key),
-      ),
-      textInputAction: TextInputAction.next,
-      focusNode: _confirmPasswordFocusNode,
-    );
+    return Container(
+        height: 60,
+        padding: EdgeInsets.only(top: 18.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.zero),
+            color: Colors.white,
+            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)]),
+        child: TextFormField(
+          controller: _confirmPasswordController,
+          keyboardType: TextInputType.text,
+          obscureText: true,
+          decoration: InputDecoration(
+            hintText: 'Confirmar senha',
+            prefixIcon: Icon(Icons.vpn_key),
+          ),
+          textInputAction: TextInputAction.next,
+          focusNode: _confirmPasswordFocusNode,
+        ));
   }
 
   Future _signUp() async {
@@ -144,10 +173,25 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget _showSignUpButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32.0),
-      child: RaisedButton(child: Text('REGISTRAR'), onPressed: _signUp),
-    );
+    return Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0),
+        child: Center(
+          child: SizedBox(
+            width: 150.0,
+            height: 50.0,
+            child: FlatButton(
+              child: Text(
+                'REGISTRAR',
+                style: TextStyle(color: Colors.blue, fontSize: 17.0),
+              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(50.0),
+                  side: BorderSide(color: Colors.blue)),
+              color: Colors.white,
+              onPressed: _signUp,
+            ),
+          ),
+        ));
   }
 
   void _signIn() {
@@ -155,6 +199,36 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget _showSignInButton() {
-    return FlatButton(child: Text('Já tem conta? faça login'), onPressed: _signIn);
+    return Column(
+      children: <Widget>[
+        Center(
+          child: Container(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Já Possui Conta ?',
+                style: TextStyle(color: Colors.grey),
+              )),
+        ),
+        Container(
+            padding: EdgeInsets.symmetric(vertical: 20.0),
+            child: Center(
+              child: SizedBox(
+                width: 150.0,
+                height: 50.0,
+                child: RaisedButton(
+                  child: Text(
+                    'ENTRAR',
+                    style: TextStyle(color: Colors.white, fontSize: 17.0),
+                  ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(50.0),
+                      side: BorderSide(color: Colors.blue)),
+                  color: Colors.blue,
+                  onPressed: _signIn,
+                ),
+              ),
+            ))
+      ],
+    );
   }
 }

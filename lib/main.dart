@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:lost_and_found/views/about_page.dart';
 import 'package:lost_and_found/views/found_page.dart';
 import 'package:lost_and_found/views/home_page.dart';
+import 'package:lost_and_found/views/intro_screen.dart';
 import 'package:lost_and_found/views/lost_object_detail_page.dart';
 import 'package:lost_and_found/views/profile_page.dart';
 import 'package:lost_and_found/views/root_page.dart';
@@ -20,10 +21,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Achados e Perdidos',
       theme: new ThemeData(
-        primarySwatch: Colors.amber
+        primarySwatch: Colors.blue
       ),
       debugShowCheckedModeBanner: false,
-      home: RootPage(),
+      home: IntroScreen(),
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         RootPage.routeName: (context) => new RootPage(),
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         UseTermPage.routeName: (context) => new UseTermPage(),
         FoundPage.routeName: (context) => new FoundPage(),
         LostObjectDetailPage.routeName: (context) => new LostObjectDetailPage(),
+        IntroScreen.routeName: (context) => new IntroScreen()
       },
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
